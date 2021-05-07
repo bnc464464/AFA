@@ -12,9 +12,42 @@ namespace AFA
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public static DetailsForm window = new DetailsForm();//put pm into the brackets
+        private Form1(PetManager pm)//put 'PetManager pm' into the brackets
         {
             InitializeComponent();
+        }
+
+        private void CatBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+            window.getInfo = 1;
+        }
+
+        private void DogBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+            window.getInfo = 2;
+        }
+
+        private void BirdBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+            window.getInfo = 3;
+        }
+
+        private void HorseBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+            window.getInfo = 4;
         }
     }
 }

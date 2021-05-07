@@ -130,6 +130,7 @@ namespace AFA
             this.DetailCancelBtn.TabIndex = 7;
             this.DetailCancelBtn.Text = "Cancel";
             this.DetailCancelBtn.UseVisualStyleBackColor = true;
+            this.DetailCancelBtn.Click += new System.EventHandler(this.DetailCancelBtn_Click);
             // 
             // DetailsContinueBtn
             // 
@@ -140,6 +141,7 @@ namespace AFA
             this.DetailsContinueBtn.TabIndex = 8;
             this.DetailsContinueBtn.Text = "Continue";
             this.DetailsContinueBtn.UseVisualStyleBackColor = true;
+            this.DetailsContinueBtn.Click += new System.EventHandler(this.DetailsContinueBtn_Click);
             // 
             // textBox1
             // 

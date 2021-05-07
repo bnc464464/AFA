@@ -67,6 +67,7 @@ namespace AFA
             this.CatBtn.TabIndex = 2;
             this.CatBtn.Text = "Cat\r\n*This will be replaced for a pic*";
             this.CatBtn.UseVisualStyleBackColor = true;
+            this.CatBtn.Click += new System.EventHandler(this.CatBtn_Click);
             // 
             // DogBtn
             // 
@@ -76,6 +77,7 @@ namespace AFA
             this.DogBtn.TabIndex = 3;
             this.DogBtn.Text = "Dog\n*This will be replaced for a pic*";
             this.DogBtn.UseVisualStyleBackColor = true;
+            this.DogBtn.Click += new System.EventHandler(this.DogBtn_Click);
             // 
             // BirdBtn
             // 
@@ -85,6 +87,7 @@ namespace AFA
             this.BirdBtn.TabIndex = 4;
             this.BirdBtn.Text = "Bird\r\n*This will be replaced for a pic*";
             this.BirdBtn.UseVisualStyleBackColor = true;
+            this.BirdBtn.Click += new System.EventHandler(this.BirdBtn_Click);
             // 
             // HorseBtn
             // 
@@ -94,6 +97,7 @@ namespace AFA
             this.HorseBtn.TabIndex = 5;
             this.HorseBtn.Text = "Horse\r\n*This will be replaced for a pic*";
             this.HorseBtn.UseVisualStyleBackColor = true;
+            this.HorseBtn.Click += new System.EventHandler(this.HorseBtn_Click);
             // 
             // CompletedBtn
             // 
