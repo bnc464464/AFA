@@ -15,11 +15,9 @@ namespace AFA
         public static void Main()
         {
 
-            PetManager pm = new PetManager();
-
-            Form1 mainPage = new Form1(pm);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Form1 mainPage = new Form1();
             Application.Run(mainPage);
         }
     }

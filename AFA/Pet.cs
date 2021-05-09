@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace AFA
 {
-    class Pet
+    public class Pet
     {
+        List<int> consumption = new List<int>();
+        public Pet(string name, List<int> c, int animal)
+        {
+            consumption = c;
+        }
+
+        public float WeeklyAvg()
+        {
+            float totalFood = 0;
+            foreach (int amount in consumption)
+            {
+                totalFood += amount;
+            }
+            return totalFood / 7;
+        }
     }
+
 }

@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace AFA
 {
-    class PetManager
+    public class PetManager
     {
-        public List<Pet> totalpets = new List<Pet>();
+
+        public List<Pet> totalPets = new List<Pet>();
+        public PetManager()
+        {
+
+        }
+
 
     }
 }

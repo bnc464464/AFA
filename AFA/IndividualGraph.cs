@@ -13,15 +13,17 @@ namespace AFA
 {
     public partial class IndividualGraph : Form
     {
+        PetManager pm = new PetManager();
+
         List<double> xValues = new List<double>();
         List<double> yValues = new List<double>();
 
         public IndividualGraph()
         {
             InitializeComponent();
-            for (int i = 0; i < length; i++)
+            foreach (Pet pet in pm.totalPets)
             {
-
+                yValues.Add(pet.WeeklyAvg());
             }
         }
 

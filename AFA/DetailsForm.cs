@@ -12,9 +12,12 @@ namespace AFA
 {
     public partial class DetailsForm : Form
     {
-        public DetailsForm()//put 'PetManager pm' into the brackets
+        public PetManager pm
+        { get; set; }
+        public DetailsForm(PetManager PM)//put 'PetManager pm' into the brackets
         {
             InitializeComponent();
+            pm = PM;
         }
 
         private void DetailCancelBtn_Click(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace AFA
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-        public int getInfo
+        public int getAnimalInfo
         {
             get; set;
         }
@@ -33,10 +36,7 @@ namespace AFA
         {
 
             //if name is the same as any of the other names make a text box otherwise doing the other one for now.
-            for (int i = 0; i < length; i++)
-            {
 
-            }
 
             string message = "Would you like to add a new pet?";
             string caption = "";
@@ -45,6 +45,11 @@ namespace AFA
 
             if (result == DialogResult.OK)
             {
+                List<int> Consumption = new List<int>() { Convert.ToInt32(Day1Nud), Convert.ToInt32(Day2Nud), Convert.ToInt32(Day3Nud), Convert.ToInt32(Day4Nud), Convert.ToInt32(Day5Nud), Convert.ToInt32(Day6Nud), Convert.ToInt32(Day7Nud) };
+
+                //THE ERROR IS HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+                pm.totalPets.Add(new Pet(Convert.ToString(NameTxb), Consumption, getAnimalInfo));
                 message = "Succesfully Added";
                 caption = "Pet Added Succesfully";
                 buttons = MessageBoxButtons.OK;
