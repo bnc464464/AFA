@@ -12,9 +12,9 @@ namespace AFA
 {
     public partial class DetailsForm : Form
     {
-        public PetManager pm
-        { get; set; }
-        public DetailsForm(PetManager PM)//put 'PetManager pm' into the brackets
+        public PetManager pm;
+        public int listValue;
+        public DetailsForm(PetManager PM)
         {
             InitializeComponent();
             pm = PM;
@@ -27,43 +27,76 @@ namespace AFA
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-        public int getAnimalInfo
+        public int GetAnimalInfo
         {
             get; set;
         }
 
         private void DetailsContinueBtn_Click(object sender, EventArgs e)
         {
+            string message;
+            string caption;
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
 
             //if name is the same as any of the other names make a text box otherwise doing the other one for now.
+            bool nameFound = false;
+            listValue = 0;
+            while (nameFound == false)
+            {
+                foreach (Pet pet in pm.totalPets)
+                {
+                    listValue++;
+                    if (pet.name.Equals(Convert.ToString(NameTxb)))
+                    {
+                        DialogResult result2 = AddMiniWindow("Would you like to add this pet under " + Convert.ToString(NameTxb)+"?", "Pet Found", MessageBoxButtons.OKCancel);
 
+                        if (result2 == DialogResult.OK)
+                        {
+                            result2 = AddMiniWindow("Details Added", "Finished Adding", MessageBoxButtons.OK);
 
-            string message = "Would you like to add a new pet?";
-            string caption = "";
-            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            CreateNewWindow();
+                        }
+                        nameFound = true;
+                    }
+                }
+                nameFound = true;
+            }
+
+            message = "Would you like to add a new pet?";
+            caption = "";
+
             DialogResult result = MessageBox.Show(message, caption, buttons);
 
             if (result == DialogResult.OK)
             {
-                List<int> Consumption = new List<int>() { Convert.ToInt32(Day1Nud), Convert.ToInt32(Day2Nud), Convert.ToInt32(Day3Nud), Convert.ToInt32(Day4Nud), Convert.ToInt32(Day5Nud), Convert.ToInt32(Day6Nud), Convert.ToInt32(Day7Nud) };
+                List<int> Consumption = new List<int>() { Convert.ToInt32(Day1Nud.Value), Convert.ToInt32(Day2Nud.Value), Convert.ToInt32(Day3Nud.Value), Convert.ToInt32(Day4Nud.Value), Convert.ToInt32(Day5Nud.Value), Convert.ToInt32(Day6Nud.Value), Convert.ToInt32(Day7Nud.Value) };
 
-                //THE ERROR IS HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                pm.totalPets.Add(new Pet(NameTxb.Text, Consumption, GetAnimalInfo));
 
-                pm.totalPets.Add(new Pet(Convert.ToString(NameTxb), Consumption, getAnimalInfo));
-                message = "Succesfully Added";
-                caption = "Pet Added Succesfully";
-                buttons = MessageBoxButtons.OK;
-                result = MessageBox.Show(message, caption, buttons);
+                listValue = pm.totalPets.Count - 1;
+                result = AddMiniWindow("Succesfully Added: " + Convert.ToString(pm.totalPets[listValue].name), "Pet Added Succesfully", MessageBoxButtons.OK);
 
-                this.Hide();
-                Form1 window = new Form1();//put pm into the brackets
-                window.FormClosed += (s, args) => this.Close();
-                window.Show();
+                //Form1 window = new Form1();//put pm into the brackets
+                CreateNewWindow();
             }
             if (result == DialogResult.Cancel)
             {
                 //do nothing
             }
+        }
+
+        public DialogResult AddMiniWindow(string message, string caption, MessageBoxButtons buttons)
+        {
+            DialogResult result = MessageBox.Show(message, caption, buttons);
+            return result;
+        }
+
+        public void CreateNewWindow()
+        {
+            this.Hide();
+            IndividualGraph window = new IndividualGraph(pm, listValue);
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
         }
     }
 }

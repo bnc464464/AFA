@@ -13,23 +13,36 @@ namespace AFA
 {
     public partial class IndividualGraph : Form
     {
-        PetManager pm = new PetManager();
+        public PetManager pm;
 
-        List<double> xValues = new List<double>();
-        List<double> yValues = new List<double>();
+        List<DataPoint> yValues = new List<DataPoint>();
 
-        public IndividualGraph()
+        public IndividualGraph(PetManager PM, int listValue)
         {
             InitializeComponent();
-            foreach (Pet pet in pm.totalPets)
+            pm = PM;
+            pm.totalPets[listValue].WeeklyAvg();
+
+            foreach (float weeklyAverage in pm.totalPets[listValue].TotalConsumption)
             {
-                yValues.Add(pet.WeeklyAvg());
+                DataPoint Dp = new DataPoint();
+                Dp.SetValueY(weeklyAverage);
+                yValues.Add(Dp);
             }
+
+            chart1.Series.Clear();
+            chart1.Series.Add("Food");
+            foreach (DataPoint dP in yValues)
+            {
+                chart1.Series["Food"].Points.Add(dP);
+            }
+
+            chart1.Series["Food"].ChartType = SeriesChartType.Line;
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
-            chart1.Series["Series1"].Points.DataBindXY(xValues, yValues);
+
         }
     }
 }

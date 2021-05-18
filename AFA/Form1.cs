@@ -24,25 +24,25 @@ namespace AFA
 
         private void CatBtn_Click(object sender, EventArgs e)
         {
-            window.getAnimalInfo = 1;
+            window.GetAnimalInfo = 1;
             ButtonClicked();
         }
 
         private void DogBtn_Click(object sender, EventArgs e)
         {
-            window.getAnimalInfo = 2;
+            window.GetAnimalInfo = 2;
             ButtonClicked();
         }
 
         private void BirdBtn_Click(object sender, EventArgs e)
         {
-            window.getAnimalInfo = 3;
+            window.GetAnimalInfo = 3;
             ButtonClicked();
         }
 
         private void HorseBtn_Click(object sender, EventArgs e)
         {
-            window.getAnimalInfo = 4;
+            window.GetAnimalInfo = 4;
             ButtonClicked();
         }
 
