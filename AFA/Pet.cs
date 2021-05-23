@@ -11,15 +11,14 @@ namespace AFA
         List<int> consumption = new List<int>();
         public List<float> TotalConsumption = new List<float>();
         public string name;
-        public Pet(string Name, List<int> c, int animal)
+        public Pet(string Name, int animal)
         {
-            consumption = c;
             name = Name;
-            Console.WriteLine("Starting New Pet");
         }
 
-        public void WeeklyAvg()
+        public void WeeklyAvg(List<int> c)
         {
+            consumption = c;
             float totalFood = 0;
             foreach (int amount in consumption)
             {

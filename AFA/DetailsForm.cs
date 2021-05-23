@@ -41,14 +41,14 @@ namespace AFA
             //if name is the same as any of the other names make a text box otherwise doing the other one for now.
             bool nameFound = false;
             listValue = 0;
+            bool petExists = false;
             while (nameFound == false)
             {
                 foreach (Pet pet in pm.totalPets)
                 {
-                    listValue++;
-                    if (pet.name.Equals(Convert.ToString(NameTxb)))
+                    if (pet.name.ToLower() == NameTxb.Text.ToLower())
                     {
-                        DialogResult result2 = AddMiniWindow("Would you like to add this pet under " + Convert.ToString(NameTxb)+"?", "Pet Found", MessageBoxButtons.OKCancel);
+                        DialogResult result2 = AddMiniWindow("Would you like to add this food under " + NameTxb.Text + "?", "Pet Found", MessageBoxButtons.OKCancel);
 
                         if (result2 == DialogResult.OK)
                         {
@@ -56,32 +56,46 @@ namespace AFA
 
                             CreateNewWindow();
                         }
+
+                        petExists = true;
                         nameFound = true;
                     }
+                    else
+                        listValue++;
                 }
                 nameFound = true;
             }
 
-            message = "Would you like to add a new pet?";
-            caption = "";
-
-            DialogResult result = MessageBox.Show(message, caption, buttons);
-
-            if (result == DialogResult.OK)
+            if (!petExists)
             {
-                List<int> Consumption = new List<int>() { Convert.ToInt32(Day1Nud.Value), Convert.ToInt32(Day2Nud.Value), Convert.ToInt32(Day3Nud.Value), Convert.ToInt32(Day4Nud.Value), Convert.ToInt32(Day5Nud.Value), Convert.ToInt32(Day6Nud.Value), Convert.ToInt32(Day7Nud.Value) };
+                message = "Would you like to add a new pet?";
+                caption = "";
 
-                pm.totalPets.Add(new Pet(NameTxb.Text, Consumption, GetAnimalInfo));
+                DialogResult result = MessageBox.Show(message, caption, buttons);
+            
 
-                listValue = pm.totalPets.Count - 1;
-                result = AddMiniWindow("Succesfully Added: " + Convert.ToString(pm.totalPets[listValue].name), "Pet Added Succesfully", MessageBoxButtons.OK);
+                if (result == DialogResult.OK)
+                {
+                    if (petExists)
+                    {
+                        AddMiniWindow("Please enter a different name", "Pet Already Exists", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        pm.totalPets.Add(new Pet(NameTxb.Text, GetAnimalInfo));
 
-                //Form1 window = new Form1();//put pm into the brackets
-                CreateNewWindow();
-            }
-            if (result == DialogResult.Cancel)
-            {
-                //do nothing
+                        listValue = pm.totalPets.Count - 1;
+                        AddMiniWindow("Succesfully Added: " + Convert.ToString(pm.totalPets[listValue].name), "Pet Added Succesfully", MessageBoxButtons.OK);
+
+                        //Form1 window = new Form1();//put pm into the brackets
+                        CreateNewWindow();
+
+                    }
+                }
+                if (result == DialogResult.Cancel)
+                {
+                    //do nothing
+                }
             }
         }
 
@@ -93,8 +107,9 @@ namespace AFA
 
         public void CreateNewWindow()
         {
+            List<int> consumption = new List<int>() { Convert.ToInt32(Day1Nud.Value), Convert.ToInt32(Day2Nud.Value), Convert.ToInt32(Day3Nud.Value), Convert.ToInt32(Day4Nud.Value), Convert.ToInt32(Day5Nud.Value), Convert.ToInt32(Day6Nud.Value), Convert.ToInt32(Day7Nud.Value) };
             this.Hide();
-            IndividualGraph window = new IndividualGraph(pm, listValue);
+            IndividualGraph window = new IndividualGraph(pm, listValue, consumption);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
