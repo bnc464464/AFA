@@ -11,9 +11,11 @@ namespace AFA
         List<int> consumption = new List<int>();
         public List<float> TotalConsumption = new List<float>();
         public string name;
-        public Pet(string Name, int animal)
+        public int animal;
+        public Pet(string Name, int type)
         {
             name = Name;
+            animal = type;
         }
 
         public void WeeklyAvg(List<int> c)

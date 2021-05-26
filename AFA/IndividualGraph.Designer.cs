@@ -29,11 +29,11 @@ namespace AFA
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
+            this.nameTtl = new System.Windows.Forms.Label();
             this.IndGphCancelBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cnp_controller = new System.Windows.Forms.Panel();
@@ -42,31 +42,31 @@ namespace AFA
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(44, 67);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Food";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Food";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(518, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
-            // label1
+            // nameTtl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 24F);
-            this.label1.Location = new System.Drawing.Point(260, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 44);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
+            this.nameTtl.AutoSize = true;
+            this.nameTtl.Font = new System.Drawing.Font("Palatino Linotype", 24F);
+            this.nameTtl.Location = new System.Drawing.Point(260, 5);
+            this.nameTtl.Name = "nameTtl";
+            this.nameTtl.Size = new System.Drawing.Size(107, 44);
+            this.nameTtl.TabIndex = 1;
+            this.nameTtl.Text = "Name";
             // 
             // IndGphCancelBtn
             // 
@@ -107,7 +107,7 @@ namespace AFA
             this.Controls.Add(this.cnp_controller);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.IndGphCancelBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nameTtl);
             this.Controls.Add(this.chart1);
             this.Name = "IndividualGraph";
             this.Text = "IndividualGraph";
@@ -120,7 +120,7 @@ namespace AFA
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label nameTtl;
         private System.Windows.Forms.Button IndGphCancelBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel cnp_controller;

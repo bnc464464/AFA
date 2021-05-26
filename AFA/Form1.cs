@@ -52,5 +52,13 @@ namespace AFA
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
+
+        private void CompletedBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CompleteGraph window = new CompleteGraph(pm);//put pm into the brackets
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+        }
     }
 }

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompleteGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompleteGraph.Designer.cs">
+      <DependentUpon>CompleteGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="PetManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CompleteGraph.resx">
+      <DependentUpon>CompleteGraph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailsForm.resx">
       <DependentUpon>DetailsForm.cs</DependentUpon>
     </EmbeddedResource>

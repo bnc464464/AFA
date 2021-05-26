@@ -108,6 +108,7 @@ namespace AFA
             this.CompletedBtn.TabIndex = 6;
             this.CompletedBtn.Text = "Finished Adding";
             this.CompletedBtn.UseVisualStyleBackColor = true;
+            this.CompletedBtn.Click += new System.EventHandler(this.CompletedBtn_Click);
             // 
             // Form1
             // 
