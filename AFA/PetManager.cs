@@ -16,9 +16,9 @@ namespace AFA
 
         }
 
-        public List<DataPoint> AvgPetWeeklys (int animalType)
+        public List<float> AvgPetWeeklys (int animalType)
         {
-            List<DataPoint> AvgWeeklyValues = new List<DataPoint>(); //The final data point values
+            List<float> AvgWeeklyValues = new List<float>(); //The final data point values
             List<float> AvgWeeklySums = new List<float>(); //The sums of all the pets in 1 animal category
             List<float> HowManyAnimals = new List<float>(); //Checks for the average how many animals were entered in a certain week
 
@@ -43,9 +43,7 @@ namespace AFA
 
             for (int i = 0; i < AvgWeeklySums.Count;)
             {
-                DataPoint Dp = new DataPoint();
-                Dp.SetValueY(AvgWeeklySums[i]/HowManyAnimals[i]);
-                AvgWeeklyValues.Add(Dp);
+                AvgWeeklyValues.Add(AvgWeeklySums[i] / HowManyAnimals[i]);
                 i++;
             }
 

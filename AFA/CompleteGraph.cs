@@ -19,40 +19,106 @@ namespace AFA
             InitializeComponent();
             pm = PM;
             // getting the series values
-            List<DataPoint> catValues = new List<DataPoint>();
+            List<float> catValues = new List<float>();
             catValues = pm.AvgPetWeeklys(1);
 
-            List<DataPoint> dogValues = new List<DataPoint>();
+            List<float> dogValues = new List<float>();
             dogValues = pm.AvgPetWeeklys(2);
 
-            List<DataPoint> birdValues = new List<DataPoint>();
+            List<float> birdValues = new List<float>();
             birdValues = pm.AvgPetWeeklys(3);
 
-            List<DataPoint> horseValues = new List<DataPoint>();
+            List<float> horseValues = new List<float>();
             horseValues = pm.AvgPetWeeklys(4);
 
             //creating points on graph
             chart1.Series.Clear();
 
             chart1.Series.Add("Cat");
-            foreach (DataPoint dP in catValues)
-                chart1.Series["Cat"].Points.Add(dP);
+            foreach (float point in catValues)
+            {
+                DataPoint Dp = new DataPoint();
+                Dp.SetValueY(point);
+                chart1.Series["Cat"].Points.Add(point);
+            }
             chart1.Series["Cat"].ChartType = SeriesChartType.Line;
             
             chart1.Series.Add("Dog");
-            foreach (DataPoint dP in dogValues)
-                chart1.Series["Dog"].Points.Add(dP);
+            foreach (float point in dogValues)
+            {
+                DataPoint Dp = new DataPoint();
+                Dp.SetValueY(point);
+                chart1.Series["Dog"].Points.Add(point);
+            }
             chart1.Series["Dog"].ChartType = SeriesChartType.Line;
             
             chart1.Series.Add("Bird");
-            foreach (DataPoint dP in birdValues)
-                chart1.Series["Bird"].Points.Add(dP);
+            foreach (float point in birdValues)
+            {
+                DataPoint Dp = new DataPoint();
+                Dp.SetValueY(point);
+                chart1.Series["Bird"].Points.Add(point);
+            }
             chart1.Series["Bird"].ChartType = SeriesChartType.Line;
             
             chart1.Series.Add("Horse");
-            foreach (DataPoint dP in horseValues)
-                chart1.Series["Horse"].Points.Add(dP);
+            foreach (float point in horseValues)
+            {
+                DataPoint Dp = new DataPoint();
+                Dp.SetValueY(point);
+                chart1.Series["Horse"].Points.Add(point);
+            }
             chart1.Series["Horse"].ChartType = SeriesChartType.Line;
+
+
+            // The Lists
+
+            int weekNum = 1;
+            Font font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11);
+            foreach (float weeklyAverage in catValues)
+            {
+                Label point = new Label();
+                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+
+                point.Font = font;
+                point.Location = new Point(10, cnpControllerCat.Controls.Count * 20);
+
+                cnpControllerCat.Controls.Add(point);
+                weekNum++;
+            }
+            foreach (float weeklyAverage in dogValues)
+            {
+                Label point = new Label();
+                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+
+                point.Font = font;
+                point.Location = new Point(10, cnpControllerDog.Controls.Count * 20);
+
+                cnpControllerDog.Controls.Add(point);
+                weekNum++;
+            }
+            foreach (float weeklyAverage in birdValues)
+            {
+                Label point = new Label();
+                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+
+                point.Font = font;
+                point.Location = new Point(10, cnpControllerBird.Controls.Count * 20);
+
+                cnpControllerBird.Controls.Add(point);
+                weekNum++;
+            }
+            foreach (float weeklyAverage in horseValues)
+            {
+                Label point = new Label();
+                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+
+                point.Font = font;
+                point.Location = new Point(10, cnpControllerHorse.Controls.Count * 20);
+
+                cnpControllerHorse.Controls.Add(point);
+                weekNum++;
+            }
         }
 
 
