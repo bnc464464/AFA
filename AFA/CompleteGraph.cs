@@ -74,53 +74,55 @@ namespace AFA
             // The Lists
 
             int weekNum = 1;
-            Font font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11);
             foreach (float weeklyAverage in catValues)
             {
-                Label point = new Label();
-                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+                Label newPoint = new Label();
+                newPoint = LabelMaker(weekNum, weeklyAverage);
+                newPoint.Location = new Point(10, cnpControllerCat.Controls.Count * 20);
 
-                point.Font = font;
-                point.Location = new Point(10, cnpControllerCat.Controls.Count * 20);
-
-                cnpControllerCat.Controls.Add(point);
+                cnpControllerCat.Controls.Add(newPoint);
                 weekNum++;
             }
             foreach (float weeklyAverage in dogValues)
             {
-                Label point = new Label();
-                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+                Label newPoint = new Label();
+                newPoint = LabelMaker(weekNum, weeklyAverage);
+                newPoint.Location = new Point(10, cnpControllerDog.Controls.Count * 20);
 
-                point.Font = font;
-                point.Location = new Point(10, cnpControllerDog.Controls.Count * 20);
-
-                cnpControllerDog.Controls.Add(point);
+                cnpControllerDog.Controls.Add(newPoint);
                 weekNum++;
             }
             foreach (float weeklyAverage in birdValues)
             {
-                Label point = new Label();
-                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+                Label newPoint = new Label();
+                newPoint = LabelMaker(weekNum, weeklyAverage);
+                newPoint.Location = new Point(10, cnpControllerBird.Controls.Count * 20);
 
-                point.Font = font;
-                point.Location = new Point(10, cnpControllerBird.Controls.Count * 20);
-
-                cnpControllerBird.Controls.Add(point);
+                cnpControllerBird.Controls.Add(newPoint);
                 weekNum++;
             }
             foreach (float weeklyAverage in horseValues)
             {
-                Label point = new Label();
-                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+                Label newPoint = new Label();
+                newPoint = LabelMaker(weekNum, weeklyAverage);
+                newPoint.Location = new Point(10, cnpControllerHorse.Controls.Count * 20);
 
-                point.Font = font;
-                point.Location = new Point(10, cnpControllerHorse.Controls.Count * 20);
-
-                cnpControllerHorse.Controls.Add(point);
+                cnpControllerHorse.Controls.Add(newPoint);
                 weekNum++;
             }
+
+
+            animalCtr.SelectedIndexChanged += new EventHandler(AnimalCtr_SelectedIndexChanged);
         }
 
+        private Label LabelMaker(int weekNum, float weeklyAverage)
+        {
+            Label point = new Label();
+            point.Text = "Week " + weekNum + ": " + weeklyAverage.ToString("n0") + "g";
+            point.Font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11); ;
+
+            return point;
+        }
 
         private void ComGphCancelBtn_Click(object sender, EventArgs e)
         {
@@ -128,6 +130,19 @@ namespace AFA
             Form1 window = new Form1();//put pm into the brackets
             window.FormClosed += (s, args) => this.Close();
             window.Show();
+        }
+
+        private void AnimalCtr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Titles
+            if (animalCtr.SelectedTab == animalCtr.TabPages["catValues"])
+                typeTtl.Text = "Cats";
+            else if (animalCtr.SelectedTab == animalCtr.TabPages["dogValues"])
+                typeTtl.Text = "Dogs";
+            else if (animalCtr.SelectedTab == animalCtr.TabPages["birdValues"])
+                typeTtl.Text = "Birds";
+            else if (animalCtr.SelectedTab == animalCtr.TabPages["horseValues"])
+                typeTtl.Text = "Horses";
         }
     }
 }

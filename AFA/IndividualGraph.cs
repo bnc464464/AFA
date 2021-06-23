@@ -17,14 +17,15 @@ namespace AFA
 
         List<DataPoint> yValues = new List<DataPoint>();
 
-        public IndividualGraph(PetManager PM, int listValue, List<int> consumption)
+        public IndividualGraph(PetManager PM, int listValue, float totalFood, float foodToPriceRatio)
         {
             // Creating graph
             InitializeComponent();
             pm = PM;
-            pm.totalPets[listValue].WeeklyAvg(consumption);
 
-            foreach (float weeklyAverage in pm.totalPets[listValue].TotalConsumption)
+            pm.totalPets[listValue].WeeklyAvg(totalFood, foodToPriceRatio*totalFood);
+
+            foreach (float weeklyAverage in pm.totalPets[listValue].AverageDailyConsumption)
             {
                 DataPoint Dp = new DataPoint();
                 Dp.SetValueY(weeklyAverage);
@@ -40,13 +41,16 @@ namespace AFA
             // finished creating graph
 
 
+            // form the list
             int weekNum = 1;
-            Font font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11);
-            foreach (float weeklyAverage in pm.totalPets[listValue].TotalConsumption)
-            {
-                Label point = new Label();
-                point.Text = "Week " + weekNum + ": " + weeklyAverage + "g";
+            float totalCost = 0;
+            Font font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11); // font
 
+            for (int i = 0; i < pm.totalPets[listValue].AverageDailyConsumption.Count; i++)
+            {
+                Label point = new Label(); // create label and apply text and settings
+                point.Text = "Week " + weekNum + ": " + pm.totalPets[listValue].AverageDailyConsumption[i].ToString("n0") + "g    -    " +pm.totalPets[listValue].TotalWeeklyPrices[i];
+                totalCost += pm.totalPets[listValue].TotalWeeklyPrices[i];
                 point.Font = font;
                 point.Location = new Point(10, cnp_controller.Controls.Count * 20);
 
@@ -54,12 +58,8 @@ namespace AFA
                 weekNum++;
             }
 
-            nameTtl.Text = pm.totalPets[listValue].name;
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
+            nameTtl.Text = pm.totalPets[listValue].name + "'s Weekly Averages";
+            totalCostLbl.Text = "Total Cost: $" + totalCost;
         }
 
         private void IndGphCancelBtn_Click(object sender, EventArgs e)
@@ -69,6 +69,5 @@ namespace AFA
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-
     }
 }

@@ -117,14 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Infotxb.Text" xml:space="preserve">
-    <value>When starting, please enter the cost for food, and the amount it buys.
-This will only need to be completed once, unless the food
-is changed. To enter a pets information, click on the symbol of the chosen 
-animal. Next, enter the name of the pet and fill out the weekly info. Continue, 
-and you will be shown to the graph of your pet's health.
-At the end of the week, press the 'Finished Adding' button, and you will be
-shown to a graph presenting the weekly cost of food, and the health 
-states of all of the animals. </value>
-  </data>
 </root>

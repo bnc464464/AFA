@@ -9,15 +9,34 @@ namespace AFA
 {
     public class PetManager
     {
+        public static int[,] petFood = new int[4, 2];
 
         public List<Pet> totalPets = new List<Pet>();
         public PetManager()
         {
+            LoadFoodSettings();
+        }
 
+        private void LoadFoodSettings()
+        {
+            string[] lines = System.IO.File.ReadAllLines("FoodDetails.txt"); //get an array of lines from the text file
+
+            for (int n = 0; n < 4;)
+            {
+                string[] stringPetData = lines[n].Split(',');
+
+                for (int i = 0; i <= 1;)
+                {
+                    petFood[n, i] = Convert.ToInt32(stringPetData[i]);
+                    i++;
+                }
+                n++;
+            }
         }
 
         public List<float> AvgPetWeeklys (int animalType)
         {
+            int n = 0;
             List<float> AvgWeeklyValues = new List<float>(); //The final data point values
             List<float> AvgWeeklySums = new List<float>(); //The sums of all the pets in 1 animal category
             List<float> HowManyAnimals = new List<float>(); //Checks for the average how many animals were entered in a certain week
@@ -26,14 +45,14 @@ namespace AFA
             {
                 if (totalPets[i].animal == animalType) //If the pet is of the type selected
                 {
-                    for (int n = 0; n < totalPets[i].TotalConsumption.Count;) //For each week
+                    while (n < totalPets[i].AverageDailyConsumption.Count) //For each week
                     {
-                        if (AvgWeeklySums.Count < totalPets[i].TotalConsumption.Count) //If the weekly sums didn't have the new weeks
+                        if (AvgWeeklySums.Count < totalPets[i].AverageDailyConsumption.Count) //If the weekly sums didn't have the new weeks
                         {
-                            AvgWeeklySums.Add(totalPets[i].TotalConsumption[n]);
+                            AvgWeeklySums.Add(totalPets[i].AverageDailyConsumption[n]);
                             HowManyAnimals.Add(1);
                         }
-                        AvgWeeklySums[n] += totalPets[i].TotalConsumption[n];
+                        AvgWeeklySums[n] += totalPets[i].AverageDailyConsumption[n];
                         HowManyAnimals[n]++;
                         n++;
                     }

@@ -161,6 +161,11 @@ namespace AFA
             // 
             this.Day1Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day1Nud.Location = new System.Drawing.Point(370, 110);
+            this.Day1Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day1Nud.Name = "Day1Nud";
             this.Day1Nud.Size = new System.Drawing.Size(171, 29);
             this.Day1Nud.TabIndex = 10;
@@ -169,6 +174,11 @@ namespace AFA
             // 
             this.Day2Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day2Nud.Location = new System.Drawing.Point(370, 138);
+            this.Day2Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day2Nud.Name = "Day2Nud";
             this.Day2Nud.Size = new System.Drawing.Size(171, 29);
             this.Day2Nud.TabIndex = 11;
@@ -177,6 +187,11 @@ namespace AFA
             // 
             this.Day3Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day3Nud.Location = new System.Drawing.Point(370, 166);
+            this.Day3Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day3Nud.Name = "Day3Nud";
             this.Day3Nud.Size = new System.Drawing.Size(171, 29);
             this.Day3Nud.TabIndex = 12;
@@ -185,6 +200,11 @@ namespace AFA
             // 
             this.Day4Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day4Nud.Location = new System.Drawing.Point(370, 194);
+            this.Day4Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day4Nud.Name = "Day4Nud";
             this.Day4Nud.Size = new System.Drawing.Size(171, 29);
             this.Day4Nud.TabIndex = 13;
@@ -193,6 +213,11 @@ namespace AFA
             // 
             this.Day5Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day5Nud.Location = new System.Drawing.Point(370, 222);
+            this.Day5Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day5Nud.Name = "Day5Nud";
             this.Day5Nud.Size = new System.Drawing.Size(171, 29);
             this.Day5Nud.TabIndex = 14;
@@ -221,6 +246,11 @@ namespace AFA
             // 
             this.Day6Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day6Nud.Location = new System.Drawing.Point(370, 251);
+            this.Day6Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day6Nud.Name = "Day6Nud";
             this.Day6Nud.Size = new System.Drawing.Size(171, 29);
             this.Day6Nud.TabIndex = 17;
@@ -229,6 +259,11 @@ namespace AFA
             // 
             this.Day7Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day7Nud.Location = new System.Drawing.Point(370, 279);
+            this.Day7Nud.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.Day7Nud.Name = "Day7Nud";
             this.Day7Nud.Size = new System.Drawing.Size(171, 29);
             this.Day7Nud.TabIndex = 18;

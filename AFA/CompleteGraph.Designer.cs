@@ -35,6 +35,7 @@ namespace AFA
             this.animalCtr = new System.Windows.Forms.TabControl();
             this.catValues = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cnpControllerCat = new System.Windows.Forms.Panel();
             this.dogValues = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cnpControllerDog = new System.Windows.Forms.Panel();
@@ -43,10 +44,10 @@ namespace AFA
             this.cnpControllerBird = new System.Windows.Forms.Panel();
             this.horseValues = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cnpControllerHorse = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ComGphCancelBtn = new System.Windows.Forms.Button();
-            this.cnpControllerCat = new System.Windows.Forms.Panel();
-            this.cnpControllerHorse = new System.Windows.Forms.Panel();
+            this.typeTtl = new System.Windows.Forms.Label();
             this.animalCtr.SuspendLayout();
             this.catValues.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +93,14 @@ namespace AFA
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weekly Food Average";
+            // 
+            // cnpControllerCat
+            // 
+            this.cnpControllerCat.AutoScroll = true;
+            this.cnpControllerCat.Location = new System.Drawing.Point(2, 35);
+            this.cnpControllerCat.Name = "cnpControllerCat";
+            this.cnpControllerCat.Size = new System.Drawing.Size(242, 307);
+            this.cnpControllerCat.TabIndex = 9;
             // 
             // dogValues
             // 
@@ -177,6 +186,16 @@ namespace AFA
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Weekly Food Average";
             // 
+            // cnpControllerHorse
+            // 
+            this.cnpControllerHorse.AutoScroll = true;
+            this.cnpControllerHorse.AutoScrollMargin = new System.Drawing.Size(100, 0);
+            this.cnpControllerHorse.AutoScrollMinSize = new System.Drawing.Size(100, 0);
+            this.cnpControllerHorse.Location = new System.Drawing.Point(2, 35);
+            this.cnpControllerHorse.Name = "cnpControllerHorse";
+            this.cnpControllerHorse.Size = new System.Drawing.Size(242, 307);
+            this.cnpControllerHorse.TabIndex = 9;
+            // 
             // chart1
             // 
             chartArea2.Name = "ChartArea1";
@@ -205,31 +224,22 @@ namespace AFA
             this.ComGphCancelBtn.UseVisualStyleBackColor = true;
             this.ComGphCancelBtn.Click += new System.EventHandler(this.ComGphCancelBtn_Click);
             // 
-            // cnpControllerCat
+            // typeTtl
             // 
-            this.cnpControllerCat.AutoScroll = true;
-            this.cnpControllerCat.AutoScrollMargin = new System.Drawing.Size(100, 0);
-            this.cnpControllerCat.AutoScrollMinSize = new System.Drawing.Size(100, 0);
-            this.cnpControllerCat.Location = new System.Drawing.Point(3, 31);
-            this.cnpControllerCat.Name = "cnpControllerCat";
-            this.cnpControllerCat.Size = new System.Drawing.Size(242, 307);
-            this.cnpControllerCat.TabIndex = 9;
-            // 
-            // cnpControllerHorse
-            // 
-            this.cnpControllerHorse.AutoScroll = true;
-            this.cnpControllerHorse.AutoScrollMargin = new System.Drawing.Size(100, 0);
-            this.cnpControllerHorse.AutoScrollMinSize = new System.Drawing.Size(100, 0);
-            this.cnpControllerHorse.Location = new System.Drawing.Point(3, 31);
-            this.cnpControllerHorse.Name = "cnpControllerHorse";
-            this.cnpControllerHorse.Size = new System.Drawing.Size(242, 307);
-            this.cnpControllerHorse.TabIndex = 9;
+            this.typeTtl.AutoSize = true;
+            this.typeTtl.Font = new System.Drawing.Font("Palatino Linotype", 24F);
+            this.typeTtl.Location = new System.Drawing.Point(213, 12);
+            this.typeTtl.Name = "typeTtl";
+            this.typeTtl.Size = new System.Drawing.Size(83, 44);
+            this.typeTtl.TabIndex = 9;
+            this.typeTtl.Text = "Cats";
             // 
             // CompleteGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.typeTtl);
             this.Controls.Add(this.ComGphCancelBtn);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.animalCtr);
@@ -246,6 +256,7 @@ namespace AFA
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -266,5 +277,6 @@ namespace AFA
         private System.Windows.Forms.Button ComGphCancelBtn;
         private System.Windows.Forms.Panel cnpControllerCat;
         private System.Windows.Forms.Panel cnpControllerHorse;
+        private System.Windows.Forms.Label typeTtl;
     }
 }

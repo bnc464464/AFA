@@ -31,12 +31,13 @@ namespace AFA
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MainTitleTxb = new System.Windows.Forms.Label();
-            this.Infotxb = new System.Windows.Forms.Label();
-            this.CatBtn = new System.Windows.Forms.Button();
-            this.DogBtn = new System.Windows.Forms.Button();
-            this.BirdBtn = new System.Windows.Forms.Button();
-            this.HorseBtn = new System.Windows.Forms.Button();
             this.CompletedBtn = new System.Windows.Forms.Button();
+            this.CatBtn = new System.Windows.Forms.Button();
+            this.HorseBtn = new System.Windows.Forms.Button();
+            this.BirdBtn = new System.Windows.Forms.Button();
+            this.DogBtn = new System.Windows.Forms.Button();
+            this.editPricesBtn = new System.Windows.Forms.Button();
+            this.Infotxb = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // MainTitleTxb
@@ -49,60 +50,10 @@ namespace AFA
             this.MainTitleTxb.TabIndex = 0;
             this.MainTitleTxb.Text = "The Animal Feeding App";
             // 
-            // Infotxb
-            // 
-            this.Infotxb.AutoSize = true;
-            this.Infotxb.Font = new System.Drawing.Font("Palatino Linotype", 14F);
-            this.Infotxb.Location = new System.Drawing.Point(94, 53);
-            this.Infotxb.Name = "Infotxb";
-            this.Infotxb.Size = new System.Drawing.Size(642, 208);
-            this.Infotxb.TabIndex = 1;
-            this.Infotxb.Text = resources.GetString("Infotxb.Text");
-            // 
-            // CatBtn
-            // 
-            this.CatBtn.Location = new System.Drawing.Point(50, 277);
-            this.CatBtn.Name = "CatBtn";
-            this.CatBtn.Size = new System.Drawing.Size(128, 82);
-            this.CatBtn.TabIndex = 2;
-            this.CatBtn.Text = "Cat\r\n*This will be replaced for a pic*";
-            this.CatBtn.UseVisualStyleBackColor = true;
-            this.CatBtn.Click += new System.EventHandler(this.CatBtn_Click);
-            // 
-            // DogBtn
-            // 
-            this.DogBtn.Location = new System.Drawing.Point(217, 277);
-            this.DogBtn.Name = "DogBtn";
-            this.DogBtn.Size = new System.Drawing.Size(128, 82);
-            this.DogBtn.TabIndex = 3;
-            this.DogBtn.Text = "Dog\n*This will be replaced for a pic*";
-            this.DogBtn.UseVisualStyleBackColor = true;
-            this.DogBtn.Click += new System.EventHandler(this.DogBtn_Click);
-            // 
-            // BirdBtn
-            // 
-            this.BirdBtn.Location = new System.Drawing.Point(384, 277);
-            this.BirdBtn.Name = "BirdBtn";
-            this.BirdBtn.Size = new System.Drawing.Size(128, 82);
-            this.BirdBtn.TabIndex = 4;
-            this.BirdBtn.Text = "Bird\r\n*This will be replaced for a pic*";
-            this.BirdBtn.UseVisualStyleBackColor = true;
-            this.BirdBtn.Click += new System.EventHandler(this.BirdBtn_Click);
-            // 
-            // HorseBtn
-            // 
-            this.HorseBtn.Location = new System.Drawing.Point(549, 277);
-            this.HorseBtn.Name = "HorseBtn";
-            this.HorseBtn.Size = new System.Drawing.Size(128, 82);
-            this.HorseBtn.TabIndex = 5;
-            this.HorseBtn.Text = "Horse\r\n*This will be replaced for a pic*";
-            this.HorseBtn.UseVisualStyleBackColor = true;
-            this.HorseBtn.Click += new System.EventHandler(this.HorseBtn_Click);
-            // 
             // CompletedBtn
             // 
             this.CompletedBtn.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompletedBtn.Location = new System.Drawing.Point(267, 385);
+            this.CompletedBtn.Location = new System.Drawing.Point(392, 394);
             this.CompletedBtn.Name = "CompletedBtn";
             this.CompletedBtn.Size = new System.Drawing.Size(186, 44);
             this.CompletedBtn.TabIndex = 6;
@@ -110,17 +61,79 @@ namespace AFA
             this.CompletedBtn.UseVisualStyleBackColor = true;
             this.CompletedBtn.Click += new System.EventHandler(this.CompletedBtn_Click);
             // 
+            // CatBtn
+            // 
+            this.CatBtn.BackgroundImage = global::AFA.Properties.Resources.croppedResizedCat2;
+            this.CatBtn.Location = new System.Drawing.Point(50, 277);
+            this.CatBtn.Name = "CatBtn";
+            this.CatBtn.Size = new System.Drawing.Size(128, 82);
+            this.CatBtn.TabIndex = 2;
+            this.CatBtn.UseVisualStyleBackColor = true;
+            this.CatBtn.Click += new System.EventHandler(this.CatBtn_Click);
+            // 
+            // HorseBtn
+            // 
+            this.HorseBtn.BackgroundImage = global::AFA.Properties.Resources.croppedResizedHorse;
+            this.HorseBtn.Location = new System.Drawing.Point(549, 277);
+            this.HorseBtn.Name = "HorseBtn";
+            this.HorseBtn.Size = new System.Drawing.Size(128, 82);
+            this.HorseBtn.TabIndex = 5;
+            this.HorseBtn.UseVisualStyleBackColor = true;
+            this.HorseBtn.Click += new System.EventHandler(this.HorseBtn_Click);
+            // 
+            // BirdBtn
+            // 
+            this.BirdBtn.BackgroundImage = global::AFA.Properties.Resources.croppedResizedBird;
+            this.BirdBtn.Location = new System.Drawing.Point(384, 277);
+            this.BirdBtn.Name = "BirdBtn";
+            this.BirdBtn.Size = new System.Drawing.Size(128, 82);
+            this.BirdBtn.TabIndex = 4;
+            this.BirdBtn.UseVisualStyleBackColor = true;
+            this.BirdBtn.Click += new System.EventHandler(this.BirdBtn_Click);
+            // 
+            // DogBtn
+            // 
+            this.DogBtn.BackgroundImage = global::AFA.Properties.Resources.croppedResizedDog;
+            this.DogBtn.Location = new System.Drawing.Point(217, 277);
+            this.DogBtn.Name = "DogBtn";
+            this.DogBtn.Size = new System.Drawing.Size(128, 82);
+            this.DogBtn.TabIndex = 3;
+            this.DogBtn.UseVisualStyleBackColor = true;
+            this.DogBtn.Click += new System.EventHandler(this.DogBtn_Click);
+            // 
+            // editPricesBtn
+            // 
+            this.editPricesBtn.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPricesBtn.Location = new System.Drawing.Point(136, 394);
+            this.editPricesBtn.Name = "editPricesBtn";
+            this.editPricesBtn.Size = new System.Drawing.Size(186, 44);
+            this.editPricesBtn.TabIndex = 66;
+            this.editPricesBtn.Text = "Edit Food Prices";
+            this.editPricesBtn.UseVisualStyleBackColor = true;
+            this.editPricesBtn.Click += new System.EventHandler(this.editPricesBtn_Click);
+            // 
+            // Infotxb
+            // 
+            this.Infotxb.AutoSize = true;
+            this.Infotxb.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.Infotxb.Location = new System.Drawing.Point(72, 53);
+            this.Infotxb.Name = "Infotxb";
+            this.Infotxb.Size = new System.Drawing.Size(657, 208);
+            this.Infotxb.TabIndex = 67;
+            this.Infotxb.Text = resources.GetString("Infotxb.Text");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Infotxb);
+            this.Controls.Add(this.editPricesBtn);
             this.Controls.Add(this.CompletedBtn);
             this.Controls.Add(this.HorseBtn);
             this.Controls.Add(this.BirdBtn);
             this.Controls.Add(this.DogBtn);
             this.Controls.Add(this.CatBtn);
-            this.Controls.Add(this.Infotxb);
             this.Controls.Add(this.MainTitleTxb);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -132,12 +145,13 @@ namespace AFA
         #endregion
 
         private System.Windows.Forms.Label MainTitleTxb;
-        private System.Windows.Forms.Label Infotxb;
         private System.Windows.Forms.Button CatBtn;
         private System.Windows.Forms.Button DogBtn;
         private System.Windows.Forms.Button BirdBtn;
         private System.Windows.Forms.Button HorseBtn;
         private System.Windows.Forms.Button CompletedBtn;
+        private System.Windows.Forms.Button editPricesBtn;
+        private System.Windows.Forms.Label Infotxb;
     }
 }
 

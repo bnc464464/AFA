@@ -8,8 +8,8 @@ namespace AFA
 {
     public class Pet
     {
-        List<int> consumption = new List<int>();
-        public List<float> TotalConsumption = new List<float>();
+        public List<float> AverageDailyConsumption = new List<float>();
+        public List<float> TotalWeeklyPrices = new List<float>();
         public string name;
         public int animal;
         public Pet(string Name, int type)
@@ -18,16 +18,10 @@ namespace AFA
             animal = type;
         }
 
-        public void WeeklyAvg(List<int> c)
+        public void WeeklyAvg(float c, float p)
         {
-            consumption = c;
-            float totalFood = 0;
-            foreach (int amount in consumption)
-            {
-                totalFood += amount;
-            }
-            TotalConsumption.Add(totalFood/7);
-            consumption.Clear();
+            AverageDailyConsumption.Add(c/7);
+            TotalWeeklyPrices.Add(p);
         }
     }
 
