@@ -12,6 +12,8 @@ namespace AFA
 {
     public partial class EditPricingValues : Form
     {
+        // Set up the variables for containing pet info, and for keeping the food prices
+        public static PetManager pm = new PetManager();
         public string[,] costAndSize;
         public EditPricingValues()
         {
@@ -46,9 +48,7 @@ namespace AFA
                 for (n = 0; n < 8;) //This is for checking for zeroes, or unchanged values
                 {
                     if (costAndSize[n, 0] == null || costAndSize[n, 0].Equals("0"))
-                    {
                         costAndSize[n, 1] = "yes";
-                    }
                     else
                         costAndSize[n, 1] = "no";
                     n++;
@@ -81,12 +81,13 @@ namespace AFA
                     text += "\n"; //new lines
                 n++;
             }
-            text += "yes"; //always assign a yes value after the change
+            text += "yes"; //always assign a yes value after the first change
             System.IO.File.WriteAllText("FoodDetails.txt", text); // actually put the text string on the file
+            pm.LoadFoodSettings();
 
             //enter the home page
             this.Hide();
-            Form1 window = new Form1();
+            Form1 window = new Form1(pm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }

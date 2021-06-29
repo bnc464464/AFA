@@ -12,13 +12,12 @@ namespace AFA
 {
     public partial class Form1 : Form
     {
-        // Set up the variables for containing pet info, and for keeping the food prices
-        public static PetManager pm = new PetManager();
-
+        PetManager pm;
         //form initialization
-        public Form1()
+        public Form1(PetManager PM)
         {
             InitializeComponent();
+            pm = PM;
         }
 
         // Button references, would have been much simpler with just one button, and an animal input

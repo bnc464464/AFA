@@ -20,16 +20,16 @@ namespace AFA
             pm = PM;
             // getting the series values
             List<float> catValues = new List<float>();
-            catValues = pm.AvgPetWeeklys(1);
+            catValues = pm.AvgPetWeeklys(0);
 
             List<float> dogValues = new List<float>();
-            dogValues = pm.AvgPetWeeklys(2);
+            dogValues = pm.AvgPetWeeklys(1);
 
             List<float> birdValues = new List<float>();
-            birdValues = pm.AvgPetWeeklys(3);
+            birdValues = pm.AvgPetWeeklys(2);
 
             List<float> horseValues = new List<float>();
-            horseValues = pm.AvgPetWeeklys(4);
+            horseValues = pm.AvgPetWeeklys(3);
 
             //creating points on graph
             chart1.Series.Clear();
@@ -83,6 +83,7 @@ namespace AFA
                 cnpControllerCat.Controls.Add(newPoint);
                 weekNum++;
             }
+            weekNum = 1;
             foreach (float weeklyAverage in dogValues)
             {
                 Label newPoint = new Label();
@@ -92,6 +93,7 @@ namespace AFA
                 cnpControllerDog.Controls.Add(newPoint);
                 weekNum++;
             }
+            weekNum = 1;
             foreach (float weeklyAverage in birdValues)
             {
                 Label newPoint = new Label();
@@ -101,6 +103,7 @@ namespace AFA
                 cnpControllerBird.Controls.Add(newPoint);
                 weekNum++;
             }
+            weekNum = 1;
             foreach (float weeklyAverage in horseValues)
             {
                 Label newPoint = new Label();
@@ -127,7 +130,7 @@ namespace AFA
         private void ComGphCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 window = new Form1();//put pm into the brackets
+            Form1 window = new Form1(pm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }

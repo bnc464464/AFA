@@ -29,13 +29,12 @@ namespace AFA
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.animalCtr = new System.Windows.Forms.TabControl();
             this.catValues = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cnpControllerCat = new System.Windows.Forms.Panel();
             this.dogValues = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cnpControllerDog = new System.Windows.Forms.Panel();
@@ -48,6 +47,7 @@ namespace AFA
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ComGphCancelBtn = new System.Windows.Forms.Button();
             this.typeTtl = new System.Windows.Forms.Label();
+            this.cnpControllerCat = new System.Windows.Forms.Panel();
             this.animalCtr.SuspendLayout();
             this.catValues.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,15 +92,7 @@ namespace AFA
             this.groupBox1.Size = new System.Drawing.Size(248, 368);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Weekly Food Average";
-            // 
-            // cnpControllerCat
-            // 
-            this.cnpControllerCat.AutoScroll = true;
-            this.cnpControllerCat.Location = new System.Drawing.Point(2, 35);
-            this.cnpControllerCat.Name = "cnpControllerCat";
-            this.cnpControllerCat.Size = new System.Drawing.Size(242, 307);
-            this.cnpControllerCat.TabIndex = 9;
+            this.groupBox1.Text = "Daily Food Average";
             // 
             // dogValues
             // 
@@ -122,15 +114,15 @@ namespace AFA
             this.groupBox2.Size = new System.Drawing.Size(248, 368);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Weekly Food Average";
+            this.groupBox2.Text = "Daily Food Average";
             // 
             // cnpControllerDog
             // 
             this.cnpControllerDog.AutoScroll = true;
-            this.cnpControllerDog.AutoScrollMargin = new System.Drawing.Size(100, 0);
-            this.cnpControllerDog.AutoScrollMinSize = new System.Drawing.Size(100, 0);
+            this.cnpControllerDog.AutoSize = true;
             this.cnpControllerDog.Location = new System.Drawing.Point(2, 35);
             this.cnpControllerDog.Name = "cnpControllerDog";
+            this.cnpControllerDog.Padding = new System.Windows.Forms.Padding(20);
             this.cnpControllerDog.Size = new System.Drawing.Size(242, 307);
             this.cnpControllerDog.TabIndex = 8;
             // 
@@ -153,15 +145,15 @@ namespace AFA
             this.groupBox3.Size = new System.Drawing.Size(248, 368);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Weekly Food Average";
+            this.groupBox3.Text = "Daily Food Average";
             // 
             // cnpControllerBird
             // 
             this.cnpControllerBird.AutoScroll = true;
-            this.cnpControllerBird.AutoScrollMargin = new System.Drawing.Size(100, 0);
-            this.cnpControllerBird.AutoScrollMinSize = new System.Drawing.Size(100, 0);
+            this.cnpControllerBird.AutoSize = true;
             this.cnpControllerBird.Location = new System.Drawing.Point(2, 35);
             this.cnpControllerBird.Name = "cnpControllerBird";
+            this.cnpControllerBird.Padding = new System.Windows.Forms.Padding(20);
             this.cnpControllerBird.Size = new System.Drawing.Size(242, 307);
             this.cnpControllerBird.TabIndex = 8;
             // 
@@ -184,31 +176,31 @@ namespace AFA
             this.groupBox4.Size = new System.Drawing.Size(248, 368);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Weekly Food Average";
+            this.groupBox4.Text = "Daily Food Average";
             // 
             // cnpControllerHorse
             // 
             this.cnpControllerHorse.AutoScroll = true;
-            this.cnpControllerHorse.AutoScrollMargin = new System.Drawing.Size(100, 0);
-            this.cnpControllerHorse.AutoScrollMinSize = new System.Drawing.Size(100, 0);
+            this.cnpControllerHorse.AutoSize = true;
             this.cnpControllerHorse.Location = new System.Drawing.Point(2, 35);
             this.cnpControllerHorse.Name = "cnpControllerHorse";
+            this.cnpControllerHorse.Padding = new System.Windows.Forms.Padding(20);
             this.cnpControllerHorse.Size = new System.Drawing.Size(242, 307);
             this.cnpControllerHorse.TabIndex = 9;
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(7, 80);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Food";
-            this.chart1.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Food";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(518, 300);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
@@ -234,6 +226,17 @@ namespace AFA
             this.typeTtl.TabIndex = 9;
             this.typeTtl.Text = "Cats";
             // 
+            // cnpControllerCat
+            // 
+            this.cnpControllerCat.AutoScroll = true;
+            this.cnpControllerCat.AutoSize = true;
+            this.cnpControllerCat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cnpControllerCat.Location = new System.Drawing.Point(3, 32);
+            this.cnpControllerCat.Name = "cnpControllerCat";
+            this.cnpControllerCat.Padding = new System.Windows.Forms.Padding(20);
+            this.cnpControllerCat.Size = new System.Drawing.Size(242, 333);
+            this.cnpControllerCat.TabIndex = 9;
+            // 
             // CompleteGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,12 +251,16 @@ namespace AFA
             this.animalCtr.ResumeLayout(false);
             this.catValues.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.dogValues.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.birdValues.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.horseValues.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -275,8 +282,8 @@ namespace AFA
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button ComGphCancelBtn;
-        private System.Windows.Forms.Panel cnpControllerCat;
         private System.Windows.Forms.Panel cnpControllerHorse;
         private System.Windows.Forms.Label typeTtl;
+        private System.Windows.Forms.Panel cnpControllerCat;
     }
 }

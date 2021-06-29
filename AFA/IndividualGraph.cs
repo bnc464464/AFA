@@ -42,20 +42,18 @@ namespace AFA
 
 
             // form the list
-            int weekNum = 1;
             float totalCost = 0;
             Font font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11); // font
 
             for (int i = 0; i < pm.totalPets[listValue].AverageDailyConsumption.Count; i++)
             {
                 Label point = new Label(); // create label and apply text and settings
-                point.Text = "Week " + weekNum + ": " + pm.totalPets[listValue].AverageDailyConsumption[i].ToString("n0") + "g    -    " +pm.totalPets[listValue].TotalWeeklyPrices[i];
+                point.Text = "Week 1 2 3 4 5 6 7 8 9 10" + Convert.ToString(i+1) + ": " + pm.totalPets[listValue].AverageDailyConsumption[i].ToString("n0") + "g    -    " +pm.totalPets[listValue].TotalWeeklyPrices[i];
                 totalCost += pm.totalPets[listValue].TotalWeeklyPrices[i];
                 point.Font = font;
                 point.Location = new Point(10, cnp_controller.Controls.Count * 20);
 
                 cnp_controller.Controls.Add(point);
-                weekNum++;
             }
 
             nameTtl.Text = pm.totalPets[listValue].name + "'s Weekly Averages";
@@ -65,7 +63,7 @@ namespace AFA
         private void IndGphCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 window = new Form1();//put pm into the brackets
+            Form1 window = new Form1(pm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }

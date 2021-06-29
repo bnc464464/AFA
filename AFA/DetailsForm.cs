@@ -25,7 +25,7 @@ namespace AFA
         private void DetailCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 window = new Form1();//put pm into the brackets
+            Form1 window = new Form1(pm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }

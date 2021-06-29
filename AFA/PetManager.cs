@@ -14,10 +14,9 @@ namespace AFA
         public List<Pet> totalPets = new List<Pet>();
         public PetManager()
         {
-            LoadFoodSettings();
         }
 
-        private void LoadFoodSettings()
+        public void LoadFoodSettings()
         {
             string[] lines = System.IO.File.ReadAllLines("FoodDetails.txt"); //get an array of lines from the text file
 
@@ -38,7 +37,7 @@ namespace AFA
         {
             int n = 0;
             List<float> AvgWeeklyValues = new List<float>(); //The final data point values
-            List<float> AvgWeeklySums = new List<float>(); //The sums of all the pets in 1 animal category
+            List<float> AvgWeeklySums = new List<float>(); //The sums of all the pets in an animal category
             List<float> HowManyAnimals = new List<float>(); //Checks for the average how many animals were entered in a certain week
 
             for (int i = 0; i < totalPets.Count;) //For each of the pets
@@ -47,10 +46,10 @@ namespace AFA
                 {
                     while (n < totalPets[i].AverageDailyConsumption.Count) //For each week
                     {
-                        if (AvgWeeklySums.Count < totalPets[i].AverageDailyConsumption.Count) //If the weekly sums didn't have the new weeks
+                        if (AvgWeeklySums.Count < totalPets[i].AverageDailyConsumption.Count) //If the amount of weeks in weekly sums is less than the amount of amount of weeks in an animals food consumption records
                         {
-                            AvgWeeklySums.Add(totalPets[i].AverageDailyConsumption[n]);
-                            HowManyAnimals.Add(1);
+                            AvgWeeklySums.Add(0);
+                            HowManyAnimals.Add(0);
                         }
                         AvgWeeklySums[n] += totalPets[i].AverageDailyConsumption[n];
                         HowManyAnimals[n]++;
