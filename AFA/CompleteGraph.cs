@@ -18,113 +18,47 @@ namespace AFA
         {
             InitializeComponent();
             pm = PM;
-            // getting the series values
-            List<float> catValues = new List<float>();
-            catValues = pm.AvgPetWeeklys(0);
-
-            List<float> dogValues = new List<float>();
-            dogValues = pm.AvgPetWeeklys(1);
-
-            List<float> birdValues = new List<float>();
-            birdValues = pm.AvgPetWeeklys(2);
-
-            List<float> horseValues = new List<float>();
-            horseValues = pm.AvgPetWeeklys(3);
 
             //creating points on graph
-            chart1.Series.Clear();
-
-            chart1.Series.Add("Cat");
-            foreach (float point in catValues)
-            {
-                DataPoint Dp = new DataPoint();
-                Dp.SetValueY(point);
-                chart1.Series["Cat"].Points.Add(point);
-            }
-            chart1.Series["Cat"].ChartType = SeriesChartType.Line;
-            
-            chart1.Series.Add("Dog");
-            foreach (float point in dogValues)
-            {
-                DataPoint Dp = new DataPoint();
-                Dp.SetValueY(point);
-                chart1.Series["Dog"].Points.Add(point);
-            }
-            chart1.Series["Dog"].ChartType = SeriesChartType.Line;
-            
-            chart1.Series.Add("Bird");
-            foreach (float point in birdValues)
-            {
-                DataPoint Dp = new DataPoint();
-                Dp.SetValueY(point);
-                chart1.Series["Bird"].Points.Add(point);
-            }
-            chart1.Series["Bird"].ChartType = SeriesChartType.Line;
-            
-            chart1.Series.Add("Horse");
-            foreach (float point in horseValues)
-            {
-                DataPoint Dp = new DataPoint();
-                Dp.SetValueY(point);
-                chart1.Series["Horse"].Points.Add(point);
-            }
-            chart1.Series["Horse"].ChartType = SeriesChartType.Line;
-
+            GraphPointsAdding(pm.AvgPetWeeklys(0));
 
             // The Lists
-
-            int weekNum = 1;
-            foreach (float weeklyAverage in catValues)
-            {
-                Label newPoint = new Label();
-                newPoint = LabelMaker(weekNum, weeklyAverage);
-                newPoint.Location = new Point(10, cnpControllerCat.Controls.Count * 20);
-
-                cnpControllerCat.Controls.Add(newPoint);
-                weekNum++;
-            }
-            weekNum = 1;
-            foreach (float weeklyAverage in dogValues)
-            {
-                Label newPoint = new Label();
-                newPoint = LabelMaker(weekNum, weeklyAverage);
-                newPoint.Location = new Point(10, cnpControllerDog.Controls.Count * 20);
-
-                cnpControllerDog.Controls.Add(newPoint);
-                weekNum++;
-            }
-            weekNum = 1;
-            foreach (float weeklyAverage in birdValues)
-            {
-                Label newPoint = new Label();
-                newPoint = LabelMaker(weekNum, weeklyAverage);
-                newPoint.Location = new Point(10, cnpControllerBird.Controls.Count * 20);
-
-                cnpControllerBird.Controls.Add(newPoint);
-                weekNum++;
-            }
-            weekNum = 1;
-            foreach (float weeklyAverage in horseValues)
-            {
-                Label newPoint = new Label();
-                newPoint = LabelMaker(weekNum, weeklyAverage);
-                newPoint.Location = new Point(10, cnpControllerHorse.Controls.Count * 20);
-
-                cnpControllerHorse.Controls.Add(newPoint);
-                weekNum++;
-            }
-
+            ListPointsAdding(pm.AvgPetWeeklys(0), catListTxb);
+            ListPointsAdding(pm.AvgPetWeeklys(1), dogListTxb);
+            ListPointsAdding(pm.AvgPetWeeklys(2), birdListTxb);
+            ListPointsAdding(pm.AvgPetWeeklys(3), horseListTxb);
 
             animalCtr.SelectedIndexChanged += new EventHandler(AnimalCtr_SelectedIndexChanged);
         }
 
-        private Label LabelMaker(int weekNum, float weeklyAverage)
+        private void GraphPointsAdding (List<float> animalValues)
         {
-            Label point = new Label();
-            point.Text = "Week " + weekNum + ": " + weeklyAverage.ToString("n0") + "g";
-            point.Font = new Font(new System.Drawing.FontFamily("Palatino Linotype"), 11); ;
+            chart1.Series.Clear();
+            List<string> GRAPHNAMES = new List<String>() { "Cat", "Dog", "Bird", "Horse" };
+            for (int i = 0; i < 4; i++)
+            {
+                chart1.Series.Add(GRAPHNAMES[i]);
+                foreach (float point in animalValues)
+                {
+                    DataPoint Dp = new DataPoint();
+                    Dp.SetValueY(point);
+                    chart1.Series[GRAPHNAMES[i]].Points.Add(point);
+                }
+                chart1.Series[GRAPHNAMES[i]].ChartType = SeriesChartType.Line;
+            }
+        }
 
-            return point;
+        private void ListPointsAdding (List<float> animalValues, TextBox animalBox)
+        {
+            for (int weekNum = 0; weekNum < animalValues.Count; weekNum++)
+            {
+                animalBox.AppendText("Week " + Convert.ToString(weekNum + 1) + ": " + animalValues[weekNum].ToString("n0") + "g\r\n");
+                if (weekNum > animalBox.Height / 20)
+                    animalBox.Height += 20;
+
+                if (animalValues.Count > 1)
+                    animalBox.Height += 25 / animalValues.Count;
+            }
         }
 
         private void ComGphCancelBtn_Click(object sender, EventArgs e)
@@ -144,7 +78,7 @@ namespace AFA
                 typeTtl.Text = "Dogs";
             else if (animalCtr.SelectedTab == animalCtr.TabPages["birdValues"])
                 typeTtl.Text = "Birds";
-            else if (animalCtr.SelectedTab == animalCtr.TabPages["horseValues"])
+            else
                 typeTtl.Text = "Horses";
         }
     }
