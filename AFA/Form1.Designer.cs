@@ -57,7 +57,7 @@ namespace AFA
             this.CompletedBtn.Name = "CompletedBtn";
             this.CompletedBtn.Size = new System.Drawing.Size(186, 44);
             this.CompletedBtn.TabIndex = 6;
-            this.CompletedBtn.Text = "Finished Adding";
+            this.CompletedBtn.Text = "New Week";
             this.CompletedBtn.UseVisualStyleBackColor = true;
             this.CompletedBtn.Click += new System.EventHandler(this.CompletedBtn_Click);
             // 

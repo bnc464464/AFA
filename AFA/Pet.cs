@@ -8,19 +8,24 @@ namespace AFA
 {
     public class Pet
     {
-        public List<float> AverageDailyConsumption = new List<float>();
+        // store vars
+        public List<float> TotalWeeklyConsumption = new List<float>();
         public List<float> TotalWeeklyPrices = new List<float>();
         public string name;
         public int animal;
-        public Pet(string Name, int type)
+        public int weekIntercept;
+        public Pet(string Name, int type, int week)
         {
+            // save these
             name = Name;
             animal = type;
+            weekIntercept = week;
         }
 
-        public void WeeklyAvg(float c, float p)
+        public void WeeklySaving(float c, float p)
         {
-            AverageDailyConsumption.Add(c/7);
+            // add new week of info
+            TotalWeeklyConsumption.Add(c);
             TotalWeeklyPrices.Add(p);
         }
     }

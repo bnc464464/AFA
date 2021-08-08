@@ -18,7 +18,7 @@ namespace AFA
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            EditPricingValues mainPage = new EditPricingValues();
+            EditPricingValues mainPage = new EditPricingValues(0, 0);
             Application.Run(mainPage);
         }
     }

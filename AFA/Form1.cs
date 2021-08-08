@@ -13,23 +13,24 @@ namespace AFA
     public partial class Form1 : Form
     {
         PetManager pm;
-        //form initialization
+        // form initialization
         public Form1(PetManager PM)
         {
             InitializeComponent();
             pm = PM;
         }
 
-        // Button references, would have been much simpler with just one button, and an animal input
+        // button references, would have been much simpler with just one button, and an animal input
         private void CatBtn_Click(object sender, EventArgs e) { ButtonClicked(0); }
         private void DogBtn_Click(object sender, EventArgs e) { ButtonClicked(1); }
         private void BirdBtn_Click(object sender, EventArgs e) { ButtonClicked(2); }
         private void HorseBtn_Click(object sender, EventArgs e) { ButtonClicked(3); }
 
-        // Method for when button is clicked
+        // method for when button is clicked
         private void ButtonClicked(int type)
         {
-            DetailsForm window = new DetailsForm(pm, type); // Create and run the detail giving window
+            // create and run the detail giving window
+            DetailsForm window = new DetailsForm(pm, type); 
             this.Hide();
             window.FormClosed += (s, args) => this.Close();
             window.Show();
@@ -37,16 +38,41 @@ namespace AFA
 
         private void CompletedBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CompleteGraph window = new CompleteGraph(pm); // Create and run the full graph
-            window.FormClosed += (s, args) => this.Close();
-            window.Show();
+            float[] totalCosts = new float[4];
+            bool dontDoIt = false;
+            // check for animals left unfed
+            foreach (Pet pet in pm.totalPets)
+            {
+                while (pet.weekIntercept + pet.TotalWeeklyConsumption.Count <= pm.weeksSinceStartup)
+                {
+                    DialogResult feedChecker = MessageBox.Show(pet.name+" hasn't been fed this week!\nPress <OK> to continue", "Pet Left Unfed", MessageBoxButtons.OKCancel);
+                    if (feedChecker == DialogResult.Cancel)
+                        dontDoIt = true;
+                    pet.WeeklySaving(0, 0);
+                }
+
+                totalCosts[pet.animal] += pet.TotalWeeklyPrices[pet.TotalWeeklyPrices.Count - 1];
+            }
+            if (!dontDoIt)
+            {
+                // show the totals message
+                MessageBox.Show("Week " + (pm.weeksSinceStartup+1) + " Totals:\nTotal Cat Cost: "+totalCosts[0]+ "\nTotal Dog Cost: " + totalCosts[1] + "\nTotal Bird Cost: " + totalCosts[2] 
+                    + "\nTotal Horse Cost: " + totalCosts[1]+"\nTotal Cost: " + (totalCosts[0] + totalCosts[1] + totalCosts[2] + totalCosts[3]), "Week Completed!", MessageBoxButtons.OK);
+
+                // create and run the full graph
+                this.Hide();
+                CompleteGraph window = new CompleteGraph(pm);
+                window.FormClosed += (s, args) => this.Close();
+                window.Show();
+                pm.weeksSinceStartup++;
+            }
         }
 
         private void editPricesBtn_Click(object sender, EventArgs e)
         {
+            // go to edit prices button
             this.Hide();
-            EditPricingValues window = new EditPricingValues(); // Create and run the full graph
+            EditPricingValues window = new EditPricingValues(0, 0); // create and run the full graph
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
