@@ -46,6 +46,11 @@ namespace AFA
 
             // extra text boxes of info - name, and total cost
             nameTtl.Text = pm.totalPets[listValue].name + "'s Weekly Averages";
+            if (pm.totalPets[listValue].name.Length > 7)
+            {
+                nameTtl.Text = pm.totalPets[listValue].name + "'s\nWeekly Averages";
+                chart1.Location = new System.Drawing.Point(7, 100);
+            }
             totalCostLbl.Text = "Total Cost: $" + formList(1); //form list and calculate total cost at the same time
         }
 

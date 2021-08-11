@@ -132,7 +132,7 @@ namespace AFA
             // 
             this.nameTtl.AutoSize = true;
             this.nameTtl.Font = new System.Drawing.Font("Palatino Linotype", 24F);
-            this.nameTtl.Location = new System.Drawing.Point(170, 12);
+            this.nameTtl.Location = new System.Drawing.Point(139, 12);
             this.nameTtl.Name = "nameTtl";
             this.nameTtl.Size = new System.Drawing.Size(107, 44);
             this.nameTtl.TabIndex = 8;
