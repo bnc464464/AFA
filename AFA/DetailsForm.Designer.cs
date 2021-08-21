@@ -156,6 +156,7 @@ namespace AFA
             // 
             this.NameTxb.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.NameTxb.Location = new System.Drawing.Point(265, 69);
+            this.NameTxb.MaxLength = 20;
             this.NameTxb.Name = "NameTxb";
             this.NameTxb.Size = new System.Drawing.Size(171, 32);
             this.NameTxb.TabIndex = 9;
@@ -165,7 +166,7 @@ namespace AFA
             this.Day1Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day1Nud.Location = new System.Drawing.Point(265, 115);
             this.Day1Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -178,7 +179,7 @@ namespace AFA
             this.Day2Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day2Nud.Location = new System.Drawing.Point(265, 143);
             this.Day2Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -191,7 +192,7 @@ namespace AFA
             this.Day3Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day3Nud.Location = new System.Drawing.Point(265, 171);
             this.Day3Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -204,7 +205,7 @@ namespace AFA
             this.Day4Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day4Nud.Location = new System.Drawing.Point(265, 199);
             this.Day4Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -217,7 +218,7 @@ namespace AFA
             this.Day5Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day5Nud.Location = new System.Drawing.Point(265, 227);
             this.Day5Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -250,7 +251,7 @@ namespace AFA
             this.Day6Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day6Nud.Location = new System.Drawing.Point(265, 256);
             this.Day6Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});
@@ -263,7 +264,7 @@ namespace AFA
             this.Day7Nud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Day7Nud.Location = new System.Drawing.Point(265, 284);
             this.Day7Nud.Maximum = new decimal(new int[] {
-            2000,
+            20000,
             0,
             0,
             0});

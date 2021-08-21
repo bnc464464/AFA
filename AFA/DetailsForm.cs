@@ -24,6 +24,12 @@ namespace AFA
 
             // set up the display for price
             PriceEditorLbl.Text = "$"+PetManager.petFood[getAnimalInfo, 0]+" per " + PetManager.petFood[getAnimalInfo, 1] +"g";
+
+            // the maximum food inputs
+            List<NumericUpDown> counters = new List<NumericUpDown>() { Day1Nud, Day2Nud, Day3Nud, Day4Nud, Day5Nud, Day6Nud, Day7Nud };
+            List<int> maxFood = new List<int>() { 500, 2500, 2000, 20000000 };
+            foreach (NumericUpDown counter in counters)
+                counter.Maximum = maxFood[getAnimalInfo];
         }
 
         private void DetailCancelBtn_Click(object sender, EventArgs e)
@@ -45,7 +51,7 @@ namespace AFA
             {
                 // calculate total food
                 List<int> consumption = new List<int>() { Convert.ToInt32(Day1Nud.Value), Convert.ToInt32(Day2Nud.Value), Convert.ToInt32(Day3Nud.Value), Convert.ToInt32(Day4Nud.Value), Convert.ToInt32(Day5Nud.Value), Convert.ToInt32(Day6Nud.Value), Convert.ToInt32(Day7Nud.Value) };
-                float totalFood = 0;
+                int totalFood = 0;
                 foreach (int amount in consumption)
                     totalFood += amount;
 
@@ -109,7 +115,7 @@ namespace AFA
             }
         }
 
-        public void CreateNewWindow(float totalFood, float foodToPriceRatio)
+        public void CreateNewWindow(int totalFood, float foodToPriceRatio)
         {
             // go onto next graph page
             this.Hide();

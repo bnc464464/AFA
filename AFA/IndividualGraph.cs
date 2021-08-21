@@ -18,7 +18,7 @@ namespace AFA
 
         List<DataPoint> yValues = new List<DataPoint>();
 
-        public IndividualGraph(PetManager PM, int ListValue, float totalFood, float foodToPriceRatio)
+        public IndividualGraph(PetManager PM, int ListValue, int totalFood, float foodToPriceRatio)
         {
             // saving vars to public vars available wherever in the doc
             InitializeComponent();

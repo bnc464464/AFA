@@ -9,20 +9,20 @@ namespace AFA
     public class Pet
     {
         // store vars
-        public List<float> TotalWeeklyConsumption = new List<float>();
+        public List<int> TotalWeeklyConsumption = new List<int>();
         public List<float> TotalWeeklyPrices = new List<float>();
         public string name;
         public int animal;
         public int weekIntercept;
-        public Pet(string copyOfName, int type, int week)
+        public Pet(string Name, int type, int week)
         {
             // save these
-            name = copyOfName;
+            name = Name;
             animal = type;
             weekIntercept = week;
         }
 
-        public void WeeklySaving(float c, float p)
+        public void WeeklySaving(int c, float p)
         {
             // add new week of info
             TotalWeeklyConsumption.Add(c);
