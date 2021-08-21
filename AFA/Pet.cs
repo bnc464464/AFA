@@ -14,10 +14,10 @@ namespace AFA
         public string name;
         public int animal;
         public int weekIntercept;
-        public Pet(string Name, int type, int week)
+        public Pet(string copyOfName, int type, int week)
         {
             // save these
-            name = Name;
+            name = copyOfName;
             animal = type;
             weekIntercept = week;
         }
