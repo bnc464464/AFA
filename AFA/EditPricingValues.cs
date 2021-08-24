@@ -89,26 +89,30 @@ namespace AFA
                     text += "\n"; // new lines
                 n++;
             }
-            text += "yes"; // always assign a yes value after the first change
-            System.IO.File.WriteAllText("FoodDetails.txt", text); // actually put the text string on the file
-            pm.LoadFoodSettings();
+            DialogResult checker = MessageBox.Show("New Prices: \n"+text, "Change Prices?", MessageBoxButtons.OKCancel);
 
-            // enter the previous page
-            if (homeOrDetails == 0)
+            if (checker == DialogResult.OK)
             {
-                this.Hide();
-                Form1 window = new Form1(pm);
-                window.FormClosed += (s, args) => this.Close();
-                window.Show();
+                text += "yes"; // always assign a yes value after the first change
+                System.IO.File.WriteAllText("FoodDetails.txt", text); // actually put the text string on the file
+                pm.LoadFoodSettings();
+
+                // enter the previous page
+                if (homeOrDetails == 0)
+                {
+                    this.Hide();
+                    Form1 window = new Form1(pm);
+                    window.FormClosed += (s, args) => this.Close();
+                    window.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    DetailsForm window = new DetailsForm(pm, type);
+                    window.FormClosed += (s, args) => this.Close();
+                    window.Show();
+                }
             }
-            else
-            {
-                this.Hide();
-                DetailsForm window = new DetailsForm(pm, type);
-                window.FormClosed += (s, args) => this.Close();
-                window.Show();
-            }
-            
         }
     }
 }

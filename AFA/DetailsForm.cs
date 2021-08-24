@@ -12,6 +12,8 @@ namespace AFA
 { 
     public partial class DetailsForm : Form
     {
+        public static readonly int[] MAXFOOD = { 500, 2500, 2000, 20000000 };
+
         private PetManager pm;
         private int listValue;
         private int getAnimalInfo;
@@ -23,13 +25,13 @@ namespace AFA
             getAnimalInfo = type;
 
             // set up the display for price
-            PriceEditorLbl.Text = "$"+PetManager.petFood[getAnimalInfo, 0]+" per " + PetManager.petFood[getAnimalInfo, 1] +"g";
+            PriceEditorLbl.Text = "$" + PetManager.petFood[getAnimalInfo, 0] + " per " + PetManager.petFood[getAnimalInfo, 1] + "g";
 
             // the maximum food inputs
             List<NumericUpDown> counters = new List<NumericUpDown>() { Day1Nud, Day2Nud, Day3Nud, Day4Nud, Day5Nud, Day6Nud, Day7Nud };
-            List<int> maxFood = new List<int>() { 500, 2500, 2000, 20000000 };
+            
             foreach (NumericUpDown counter in counters)
-                counter.Maximum = maxFood[getAnimalInfo];
+                counter.Maximum = MAXFOOD[getAnimalInfo];
         }
 
         private void DetailCancelBtn_Click(object sender, EventArgs e)

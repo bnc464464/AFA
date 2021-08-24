@@ -189,7 +189,7 @@ namespace AFA
             this.horseFoodAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.horseFoodAmount.Location = new System.Drawing.Point(438, 271);
             this.horseFoodAmount.Maximum = new decimal(new int[] {
-            500,
+            10000,
             0,
             0,
             0});
@@ -202,7 +202,7 @@ namespace AFA
             this.birdFoodAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.birdFoodAmount.Location = new System.Drawing.Point(438, 235);
             this.birdFoodAmount.Maximum = new decimal(new int[] {
-            500,
+            10000,
             0,
             0,
             0});
@@ -215,7 +215,7 @@ namespace AFA
             this.dogFoodAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dogFoodAmount.Location = new System.Drawing.Point(438, 192);
             this.dogFoodAmount.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
@@ -228,7 +228,7 @@ namespace AFA
             this.catFoodAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.catFoodAmount.Location = new System.Drawing.Point(438, 152);
             this.catFoodAmount.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
